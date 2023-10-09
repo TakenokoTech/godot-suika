@@ -4,16 +4,26 @@
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
+[node name="BackGround" type="Polygon2D" parent="StaticBody2D"]
+color = Color(1, 1, 1, 0.501961)
+polygon = PackedVector2Array(0, 0, 0, 1088, 1920, 1088, 1920, 0)
+
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 color = Color(0.823529, 0.345098, 0.529412, 1)
 offset = Vector2(2.08165e-12, 2.08165e-12)
-polygon = PackedVector2Array(-4.16329e-12, -4.16329e-12, -2.08165e-12, 1088, 1920, 1088, 1920, -2.08165e-12, 1856, -2.08165e-12, 1856, 70.3517, 1856, 1024, 64, 1024, 64, 64, 1856, 64, 1856, -2.08165e-12)
+polygon = PackedVector2Array(-4.16329e-12, -4.16329e-12, -2.08165e-12, 1088, 1920, 1088, 1920, -2.08165e-12, 1856, -2.08165e-12, 1856, 64, 1856, 1024, 64, 1024, 64, -2.08165e-12)
 
-[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D"]
-color = Color(1, 1, 1, 0.501961)
-polygon = PackedVector2Array(64, 64, 64, 1024, 1856, 1024, 1856, 64)
+[node name="Polygon2DUpper" type="Polygon2D" parent="StaticBody2D"]
+visible = false
+color = Color(0.823529, 0.345098, 0.529412, 1)
+offset = Vector2(2.08165e-12, 2.08165e-12)
+polygon = PackedVector2Array(64, -2.08165e-12, 1856, -2.08165e-12, 1856, 64, 64, 64)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-visible = false
 position = Vector2(2.08165e-12, 2.08165e-12)
-polygon = PackedVector2Array(64, -2.08165e-12, -2.08165e-12, -2.08165e-12, -2.08165e-12, 1088, 1920, 1088, 1920, -2.08165e-12, 1856, -2.08165e-12, 1856, 1024, 64, 1024, 64, 64, 1856, 64, 1856, -2.08165e-12)
+polygon = PackedVector2Array(64, -2.08165e-12, -2.08165e-12, -2.08165e-12, -2.08165e-12, 1088, 1920, 1088, 1920, -2.08165e-12, 1856, -2.08165e-12, 1856, 64, 1856, 1024, 64, 1024, 64, 64)
+
+[node name="CollisionPolygonUpper" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+polygon = PackedVector2Array(64, -2.08165e-12, 1856, -2.08165e-12, 1856, 64, 64, 64)
+disabled = true

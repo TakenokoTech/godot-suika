@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw87wxlkpy75i"]
+
+[ext_resource type="PackedScene" uid="uid://bkdbcgutqh7pc" path="res://components/ball.tscn" id="1_rttum"]
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_ydvjd"]
+[ext_resource type="Texture2D" uid="uid://buo0fudhi3m7s" path="res://images/7e7ee1a2-e922-49af-a730-aae8ef88b3d6.png" id="2_6ghso"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bmsv4"]
+radius = 105.0
+
+[node name="orange" type="Node2D" node_paths=PackedStringArray("rigidbody")]
+script = ExtResource("1_ydvjd")
+rigidbody = NodePath("ball/RigidBody2D")
+
+[node name="ball" parent="." instance=ExtResource("1_rttum")]
+
+[node name="Sprite2D" type="Sprite2D" parent="ball/RigidBody2D" index="0"]
+position = Vector2(2.52, 6.46)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("2_6ghso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball/RigidBody2D" index="1"]
+shape = SubResource("CircleShape2D_bmsv4")
+
+[editable path="ball"]

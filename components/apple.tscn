@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgtkjdeyuy8i7"]
+[gd_scene load_steps=5 format=3 uid="uid://cgtkjdeyuy8i7"]
 
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_0pc22"]
 [ext_resource type="PackedScene" uid="uid://bkdbcgutqh7pc" path="res://components/ball.tscn" id="1_dkqqg"]
 [ext_resource type="Texture2D" uid="uid://262ca3rivm8e" path="res://images/36da1ad5-a506-4843-8b82-347de02e9bc5.png" id="2_tunyk"]
 
-[node name="apple" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bmsv4"]
+radius = 85.1469
+
+[node name="apple" type="Node2D" node_paths=PackedStringArray("rigidbody")]
+script = ExtResource("1_0pc22")
+rigidbody = NodePath("ball/RigidBody2D")
 
 [node name="ball" parent="." instance=ExtResource("1_dkqqg")]
 
@@ -11,5 +17,8 @@
 position = Vector2(2.52, 6.46)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("2_tunyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball/RigidBody2D" index="1"]
+shape = SubResource("CircleShape2D_bmsv4")
 
 [editable path="ball"]

@@ -1,16 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhf6y3674hfsk"]
+[gd_scene load_steps=5 format=3 uid="uid://bhf6y3674hfsk"]
 
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_jsgn4"]
 [ext_resource type="PackedScene" uid="uid://bkdbcgutqh7pc" path="res://components/ball.tscn" id="1_wkrik"]
 [ext_resource type="Texture2D" uid="uid://c7qt12hxb56ig" path="res://images/252df341-6e31-440a-be96-c6cd5ae523d9.png" id="2_khevx"]
 
-[node name="wmelon" type="Node2D"]
-scale = Vector2(2.5, 2.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5asd"]
+radius = 160.0
+
+[node name="wmelon" type="Node2D" node_paths=PackedStringArray("rigidbody")]
+script = ExtResource("1_jsgn4")
+rigidbody = NodePath("ball/RigidBody2D")
 
 [node name="ball" parent="." instance=ExtResource("1_wkrik")]
 
 [node name="Sprite2D" type="Sprite2D" parent="ball/RigidBody2D" index="0"]
-position = Vector2(1.55, -1.06)
-scale = Vector2(0.22, 0.22)
+position = Vector2(3.1, -2.12)
+scale = Vector2(0.43, 0.43)
 texture = ExtResource("2_khevx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ball/RigidBody2D" index="1"]
+shape = SubResource("CircleShape2D_f5asd")
 
 [editable path="ball"]

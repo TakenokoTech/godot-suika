@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2hr60g5hw0l8"]
+[gd_scene load_steps=8 format=3 uid="uid://d2hr60g5hw0l8"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_0il5b"]
 [ext_resource type="PackedScene" uid="uid://dgogg4c28wftc" path="res://components/pair.tscn" id="1_i5gmu"]
 [ext_resource type="PackedScene" uid="uid://di65kgyyuw1nm" path="res://components/wall.tscn" id="2_1te1t"]
 [ext_resource type="PackedScene" uid="uid://cgtkjdeyuy8i7" path="res://components/apple.tscn" id="2_s5jp7"]
 [ext_resource type="PackedScene" uid="uid://bt1cr31atl42v" path="res://components/melon.tscn" id="4_7she7"]
 [ext_resource type="PackedScene" uid="uid://bhf6y3674hfsk" path="res://components/wmelon.tscn" id="5_rcbwq"]
+[ext_resource type="PackedScene" uid="uid://bw87wxlkpy75i" path="res://components/orange.tscn" id="6_fwi74"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("next_items", "stock_items")]
+script = ExtResource("1_0il5b")
+next_items = NodePath("Next")
+stock_items = NodePath("Stock")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,18 +27,25 @@ size_flags_horizontal = 4
 text = "score
 "
 
-[node name="wall" parent="." instance=ExtResource("2_1te1t")]
-visible = false
+[node name="Wall" parent="." instance=ExtResource("2_1te1t")]
 position = Vector2(2.08165e-12, 2.08165e-12)
 
-[node name="apple" parent="." instance=ExtResource("2_s5jp7")]
+[node name="Next" type="Node2D" parent="."]
+position = Vector2(960, 200)
+
+[node name="Stock" type="Node2D" parent="."]
+
+[node name="apple" parent="Stock" instance=ExtResource("2_s5jp7")]
 position = Vector2(948, 178)
 
-[node name="pair" parent="." instance=ExtResource("1_i5gmu")]
-position = Vector2(696, 155)
+[node name="pair" parent="Stock" instance=ExtResource("1_i5gmu")]
+position = Vector2(1218, 383)
 
-[node name="melon" parent="." instance=ExtResource("4_7she7")]
+[node name="melon" parent="Stock" instance=ExtResource("4_7she7")]
 position = Vector2(731, 522)
 
-[node name="wmelon" parent="." instance=ExtResource("5_rcbwq")]
+[node name="orange" parent="Stock" instance=ExtResource("6_fwi74")]
+position = Vector2(1611, 217)
+
+[node name="wmelon" parent="Stock" instance=ExtResource("5_rcbwq")]
 position = Vector2(319, 329)

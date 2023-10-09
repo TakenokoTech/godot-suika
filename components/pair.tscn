@@ -1,15 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgogg4c28wftc"]
+[gd_scene load_steps=5 format=3 uid="uid://dgogg4c28wftc"]
 
 [ext_resource type="PackedScene" uid="uid://bkdbcgutqh7pc" path="res://components/ball.tscn" id="1_thy2i"]
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_uw7nn"]
 [ext_resource type="Texture2D" uid="uid://cqo85ertx5wt7" path="res://images/abe02f1f-6ae7-4303-88c6-f6fa763505c0.png" id="1_yx2c8"]
 
-[node name="pair" type="Node2D"]
-scale = Vector2(1.5, 1.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jojm3"]
+radius = 62.6667
+height = 176.0
+
+[node name="pair" type="Node2D" node_paths=PackedStringArray("rigidbody")]
+script = ExtResource("1_uw7nn")
+rigidbody = NodePath("ball/RigidBody2D")
 
 [node name="ball" parent="." instance=ExtResource("1_thy2i")]
 
 [node name="Sprite2D" type="Sprite2D" parent="ball/RigidBody2D" index="0"]
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("1_yx2c8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball/RigidBody2D" index="1"]
+shape = SubResource("CapsuleShape2D_jojm3")
 
 [editable path="ball"]
