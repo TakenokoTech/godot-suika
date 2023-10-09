@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgogg4c28wftc"]
+
+[ext_resource type="PackedScene" uid="uid://bkdbcgutqh7pc" path="res://components/ball.tscn" id="1_thy2i"]
+[ext_resource type="Texture2D" uid="uid://cqo85ertx5wt7" path="res://images/abe02f1f-6ae7-4303-88c6-f6fa763505c0.png" id="1_yx2c8"]
+
+[node name="pair" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+
+[node name="ball" parent="." instance=ExtResource("1_thy2i")]
+
+[node name="Sprite2D" type="Sprite2D" parent="ball/RigidBody2D" index="0"]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("1_yx2c8")
+
+[editable path="ball"]

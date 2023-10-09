@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhf6y3674hfsk"]
+
+[ext_resource type="PackedScene" uid="uid://bkdbcgutqh7pc" path="res://components/ball.tscn" id="1_wkrik"]
+[ext_resource type="Texture2D" uid="uid://c7qt12hxb56ig" path="res://images/252df341-6e31-440a-be96-c6cd5ae523d9.png" id="2_khevx"]
+
+[node name="wmelon" type="Node2D"]
+scale = Vector2(2.5, 2.5)
+
+[node name="ball" parent="." instance=ExtResource("1_wkrik")]
+
+[node name="Sprite2D" type="Sprite2D" parent="ball/RigidBody2D" index="0"]
+position = Vector2(1.55, -1.06)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("2_khevx")
+
+[editable path="ball"]
