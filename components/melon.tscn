@@ -9,9 +9,13 @@ radius = 120.0
 
 [node name="melon" type="Node2D" node_paths=PackedStringArray("rigidbody")]
 script = ExtResource("1_hxyvg")
+type = "melon"
 rigidbody = NodePath("ball/RigidBody2D")
 
 [node name="ball" parent="." instance=ExtResource("1_gbuub")]
+
+[node name="RigidBody2D" parent="ball" index="0" node_paths=PackedStringArray("ball")]
+ball = NodePath("../..")
 
 [node name="Sprite2D" type="Sprite2D" parent="ball/RigidBody2D" index="0"]
 position = Vector2(2.45, -2.66)

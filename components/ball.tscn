@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkdbcgutqh7pc"]
+[gd_scene load_steps=3 format=3 uid="uid://bkdbcgutqh7pc"]
+
+[ext_resource type="Script" path="res://scripts/ball_rb.gd" id="1_kj3t6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_icfat"]
 rough = true
@@ -8,3 +10,9 @@ bounce = 0.1
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_icfat")
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_kj3t6")
+
+[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
+[connection signal="body_exited" from="RigidBody2D" to="RigidBody2D" method="_on_body_exited"]

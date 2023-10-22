@@ -3,7 +3,7 @@ extends Node2D
 @export var next_items: Node2D
 @export var stock_items: Node2D
 
-var next = null
+var next: Ball = null
 
 func _ready():
 	create_new_item()
@@ -28,14 +28,13 @@ func _physics_process(delta):
 
 func create_new_item():
 	match randi_range(1, 3):
-		1: next = preload("res://components/apple.tscn").instantiate()
-		2: next = preload("res://components/orange.tscn").instantiate()
-		3: next = preload("res://components/pair.tscn").instantiate()
-		4: next = preload("res://components/melon.tscn").instantiate()
-		5: next = preload("res://components/wmelon.tscn").instantiate()
+		1: next = load("res://components/apple.tscn").instantiate()
+		2: next = load("res://components/orange.tscn").instantiate()
+		3: next = load("res://components/pair.tscn").instantiate()
+		4: next = load("res://components/melon.tscn").instantiate()
+		5: next = load("res://components/wmelon.tscn").instantiate()
 	next.rigidbody.freeze = true
 	next_items.add_child(next)
-	print(next)
 
 func pressed_space():
 	for child in next_items.get_children():

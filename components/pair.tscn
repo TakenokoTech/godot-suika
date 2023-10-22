@@ -10,9 +10,13 @@ height = 176.0
 
 [node name="pair" type="Node2D" node_paths=PackedStringArray("rigidbody")]
 script = ExtResource("1_uw7nn")
+type = "pair"
 rigidbody = NodePath("ball/RigidBody2D")
 
 [node name="ball" parent="." instance=ExtResource("1_thy2i")]
+
+[node name="RigidBody2D" parent="ball" index="0" node_paths=PackedStringArray("ball")]
+ball = NodePath("../..")
 
 [node name="Sprite2D" type="Sprite2D" parent="ball/RigidBody2D" index="0"]
 scale = Vector2(0.22, 0.22)
